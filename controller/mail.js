@@ -14,7 +14,7 @@ async function sendMail (req, res) {
     const { name, email, text} = req.body
     try{
         await transporter.sendMail({
-            from: '<techbayteam@gmail.com>',
+            from: config.email_admin,
             to: email,
             subject: "Contacto desde la Pagina", // Subject line
             html: `<b>Hi i am ${name} ${text}</b>`,
