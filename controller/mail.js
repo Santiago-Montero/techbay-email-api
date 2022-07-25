@@ -22,7 +22,7 @@ async function sendMail (req, res) {
         res.sendStatus(200)
     }catch (error){
         console.log(error)
-        res.sendStatus(400)
+        res.send(error)
     }
 }
 
