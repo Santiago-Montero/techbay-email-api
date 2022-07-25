@@ -1,0 +1,14 @@
+{
+  "name": "TechBayEmailApi",
+  "version": "1.0.0",
+  "description": "Email api",
+  "main": "app.js",
+  "repository": "https://github.com/Santiago-Montero/techbay-email-api.git",
+  "author": "techbay company",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "nodemailer": "^6.7.7"
+  }
+}
