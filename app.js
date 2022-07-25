@@ -1,5 +1,5 @@
 const { app } = require('./routes/routes.js')
-const  config  = require('../config')
+const  config  = require('./config')
 
 const PORT = config.PORT
 
