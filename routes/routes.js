@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: true}));
 app.get('/', (req,res) => {
     res.send('Bienvenido a la Api de TECHBAY ')
 })
-app.post('/email', sendMail)
+app.get('/email', sendMail)
 
 module.exports = {
     app
