@@ -6,7 +6,7 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
-app.get('/', (req,res) => {
+app.post('/', (req,res) => {
     res.send('Bienvenido a la Api de TECHBAY ')
 })
 app.get('/email', sendMail)
