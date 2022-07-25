@@ -6,6 +6,10 @@
   "repository": "https://github.com/Santiago-Montero/techbay-email-api.git",
   "author": "techbay company",
   "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
   "dependencies": {
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
