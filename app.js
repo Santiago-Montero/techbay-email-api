@@ -1,7 +1,9 @@
 const { app } = require('./routes/routes.js')
 
 
-const PORT = 8008
+
+const PORT = process.env.PORT
+
 app.listen(PORT, () =>{
     console.log(`Server is runnig in port ${PORT}`)
 });
