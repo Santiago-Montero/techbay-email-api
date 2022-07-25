@@ -9,6 +9,9 @@ const transporter = nodemailer.createTransport({
       user: config.email_admin, // generated ethereal user
       pass: config.password_admin, // generated ethereal password
     },
+    tls : {
+        rejectUnauthorized : false
+    }
   });
 async function sendMail (req, res) {
     const { name, email, text} = req.body
