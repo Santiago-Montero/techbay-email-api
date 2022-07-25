@@ -9,19 +9,17 @@ const transporter = nodemailer.createTransport({
       user: config.email_admin, // generated ethereal user
       pass: config.password_admin, // generated ethereal password
     },
-    tls : {
-        rejectUnauthorized : false
-    }
   });
 async function sendMail (req, res) {
     const { name, email, text} = req.body
     try{
         await transporter.sendMail({
             from: email,
-            to: config.email_admin,
+            to: config.email_admin + ' , ' + email,
             subject: "Contacto desde la Pagina", // Subject line
             html: `<b>Hi i am ${name} ${text}</b>`,
         });
+        console.log('se mando')
         res.sendStatus(200)
     }catch (error){
         console.log(error)
