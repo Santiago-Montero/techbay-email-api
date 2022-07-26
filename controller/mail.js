@@ -18,10 +18,10 @@ async function sendMail (req, res) {
     console.log(text)
     try{
         await transporter.sendMail({
-            from: config.email_admin ,
-            to: email,
+            from: email,
+            to: config.email_admin,
             subject: "Contacto desde la Pagina", // Subject line
-            html: `<b>Hi i am ${name} ${text}</b>`,
+            html: `<b>Hi i am ${name}, my email is ${email} ${text} </b>`,
         });
         console.log('se mando')
         res.sendStatus(200)
