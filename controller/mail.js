@@ -19,7 +19,7 @@ async function sendMail (req, res) {
     try{
         await transporter.sendMail({
             from: email,
-            to: config.email_admin,
+            to: config.email_admin + ' ' + email,
             subject: "Contacto desde la Pagina", // Subject line
             html: `<b>Hi i am ${name} ${text}</b>`,
         });
