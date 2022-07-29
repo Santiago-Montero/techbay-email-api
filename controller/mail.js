@@ -23,7 +23,7 @@ async function sendMail (req, res) {
             from: config.email_admin,
             to: email,
             subject: "Contact TechBay", // Subject line
-            html: `<b>Thank for contact with us, we will in touch soon</b>`,
+            html: `<b>Thank for contacting with us, we will get in touch soon</b>`,
         });
         console.log('se mando')
         res.sendStatus(200)
