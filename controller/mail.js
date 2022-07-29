@@ -12,14 +12,10 @@ const transporter = nodemailer.createTransport({
   });
 async function sendMail (req, res) {
     const { name, email, text} = req.body
-    console.log(req)
-    console.log(name)
-    console.log(email)
-    console.log(text)
     try{
         await transporter.sendMail({
             from: email,
-            to: config.email_admin,
+            to: config.email_admin + ',' + email,
             subject: "Contacto desde la Pagina", // Subject line
             html: `<b>Hi i am ${name}, my email is ${email} ${text} </b>`,
         });
