@@ -15,9 +15,15 @@ async function sendMail (req, res) {
     try{
         await transporter.sendMail({
             from: email,
-            to: config.email_admin + ',' + email,
+            to: config.email_admin,
             subject: "Contacto desde la Pagina", // Subject line
-            html: `<b>Hi i am ${name}, my email is ${email} ${text} </b>`,
+            html: `<b>Nombre del contacto : ${name}, mail del contacto : ${email}  Texto del contacto : ${text} </b>`,
+        });
+        await transporter.sendMail({
+            from: config.email_admin,
+            to: email,
+            subject: "Contact TechBay", // Subject line
+            html: `<b>Thank for contact with us, we will in touch soon</b>`,
         });
         console.log('se mando')
         res.sendStatus(200)
