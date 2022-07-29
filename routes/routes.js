@@ -1,5 +1,6 @@
 const express = require("express");
 const { sendMail } = require("../controller/mail");
+const cors=require("cors");
 
 
 const app = express();

@@ -1,6 +1,6 @@
 const { app } = require('./routes/routes.js')
 const  config  = require('./config')
-const cors=require("cors");
+
 
 const PORT = config.PORT
 
