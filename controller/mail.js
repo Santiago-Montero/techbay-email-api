@@ -53,7 +53,7 @@ async function sendMailMonti (req, res) {
             html: `<b>Nombre del contacto : ${name}, mail del contacto : ${email}  Texto del contacto : ${text} </b>`,
         });
         await transporterMonti.sendMail({
-            from: config.email_admin,
+            from: config.email_monti,
             to: email,
             subject: "Contacto Santiago Montero, Desarrollador Full Stack", // Subject line
             html: `<b>Gracias por ponerte en contacto, me comunicare lo antes posible</b>`,
