@@ -44,6 +44,9 @@ async function sendMailMonti (req, res) {
         },
     });
     const { name, email, text} = req.body
+    console.log( name)
+    console.log( email)
+    console.log( text)
     try{
         await transporterMonti.sendMail({
             from: email,
