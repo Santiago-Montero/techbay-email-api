@@ -1,5 +1,5 @@
 const express = require("express");
-const { sendMail, sendMailMonti } = require("../controller/mail");
+const { sendMailTechBay, sendMailMonti } = require("../controller/mail");
 const cors=require("cors");
 
 
@@ -20,8 +20,8 @@ app.use((req, res, next) => {
 app.get('/', (req,res) => {
     res.send('Bienvenido a la Api de TECHBAY ')
 })
-app.post('/email', sendMail)
-app.post('/email-portfolio', sendMailMonti)
+app.post('/email', sendMailTechBay)
+app.post('/emailPortfolio', sendMailMonti)
 
 module.exports = {
     app

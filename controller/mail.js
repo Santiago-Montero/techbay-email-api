@@ -20,7 +20,7 @@ const transporterMonti = nodemailer.createTransport({
     },
 });
 
-async function sendMail (req, res) {
+async function sendMailTechBay (req, res) {
     const { name, email, text} = req.body
     try{
         await transporter.sendMail({
@@ -63,6 +63,6 @@ async function sendMailMonti (req, res) {
     }
 }
 module.exports = {
-    sendMail,
+    sendMailTechBay,
     sendMailMonti
 }
