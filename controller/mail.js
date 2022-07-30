@@ -1,11 +1,10 @@
 const nodemailer = require('nodemailer')
 const  config  = require('../config')
-const smtpTransport = require('nodemailer-smtp-transport');
 
 
 async function sendMailTechBay (req, res) {
 
-    const transporter = nodemailer.createTransport(smtpTransport({
+    const transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
         port: 465,
         secure: true, // true for 465, false for other ports
@@ -13,7 +12,7 @@ async function sendMailTechBay (req, res) {
         user: config.email_admin, // generated ethereal user
         pass: config.password_admin, // generated ethereal password
         },
-    }));
+    });
     const { name, email, text} = req.body
     try{
         await transporter.sendMail({
@@ -35,7 +34,7 @@ async function sendMailTechBay (req, res) {
     }
 }
 async function sendMailMonti (req, res) {
-    const transporterMonti = nodemailer.createTransport(smtpTransport({
+    const transporterMonti = nodemailer.createTransport({
         host: "smtp.gmail.com",
         port: 465,
         secure: true, // true for 465, false for other ports
@@ -43,7 +42,7 @@ async function sendMailMonti (req, res) {
           user: config.email_monti, // generated ethereal user
           pass: config.password_monti, // generated ethereal password
         },
-    }));
+    });
     const { name, email, text} = req.body
     try{
         await transporterMonti.sendMail({
