@@ -44,13 +44,13 @@ async function sendMail (req, res) {
 async function sendMailMonti (req, res) {
     const { name, email, text} = req.body
     try{
-        await transporter.sendMail({
+        await transporterMonti.sendMail({
             from: email,
             to: config.email_monti,
             subject: "Contacto desde PORTFOLIO", // Subject line
             html: `<b>Nombre del contacto : ${name}, mail del contacto : ${email}  Texto del contacto : ${text} </b>`,
         });
-        await transporter.sendMail({
+        await transporterMonti.sendMail({
             from: config.email_admin,
             to: email,
             subject: "Contacto Santiago Montero, Desarrollador Full Stack", // Subject line
