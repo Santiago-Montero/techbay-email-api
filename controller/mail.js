@@ -1,20 +1,20 @@
 const nodemailer = require('nodemailer')
-const  config  = require('../config')
+const config = require('../config')
 
 
-async function sendMailTechBay (req, res) {
+async function sendMailTechBay(req, res) {
 
     const transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
         port: 465,
         secure: true, // true for 465, false for other ports
         auth: {
-        user: config.email_admin, // generated ethereal user
-        pass: config.password_admin, // generated ethereal password
+            user: config.email_admin, // generated ethereal user
+            pass: config.password_admin, // generated ethereal password
         },
     });
-    const { name, email, text} = req.body
-    try{
+    const { name, email, text } = req.body
+    try {
         await transporter.sendMail({
             from: email,
             to: config.email_admin,
@@ -28,26 +28,26 @@ async function sendMailTechBay (req, res) {
             html: `<b>Thanks for contacting with us, we will get in touch soon</b>`,
         });
         res.sendStatus(200)
-    }catch (error){
+    } catch (error) {
         console.log(error)
         res.send(error)
     }
 }
-async function sendMailMonti (req, res) {
+async function sendMailMonti(req, res) {
     const transporterMonti = nodemailer.createTransport({
         host: "smtp.gmail.com",
         port: 465,
         secure: true, // true for 465, false for other ports
         auth: {
-          user: config.email_monti, // generated ethereal user
-          pass: config.password_monti, // generated ethereal password
+            user: config.email_monti, // generated ethereal user
+            pass: config.password_monti, // generated ethereal password
         },
     });
-    const { name, email, text} = req.body
-    console.log( name)
-    console.log( email)
-    console.log( text)
-    try{
+    const { name, email, text } = req.body
+    console.log(name)
+    console.log(email)
+    console.log(text)
+    try {
         await transporterMonti.sendMail({
             from: email,
             to: config.email_monti,
@@ -61,12 +61,47 @@ async function sendMailMonti (req, res) {
             html: `<b>Gracias por ponerte en contacto, me comunicare lo antes posible</b>`,
         });
         res.sendStatus(200)
-    }catch (error){
+    } catch (error) {
         console.log(error)
         res.send(error)
     }
 }
+async function sendMailYiHeQiao(req, res) {
+    const transporterYiHeQiao = nodemailer.createTransport({
+        host: "smtp.gmail.com",
+        port: 465,
+        secure: true, // true for 465, false for other ports
+        auth: {
+            user: config.email_YiHeQiao, // generated ethereal user
+            pass: config.password_YiHeQiao, // generated ethereal password
+        },
+    });
+    const { name, email, text } = req.body
+    try {
+        await transporterYiHeQiao.sendMail({
+            from: email,
+            to: config.email_YiHeQiao,
+            subject: "Contacto desde la Pagina YiHeQiao", // Subject line
+            html: `<b>Nombre del contacto : ${name}, mail del contacto : ${email}  Texto del contacto : ${text} </b>`,
+        });
+        await transporterYiHeQiao.sendMail({
+            from: config.email_YiHeQiao,
+            to: email,
+            subject: "Contact YiHeQiao", // Subject line
+            html: `<p>Thanks for contacting with us, we will get in touch soon</p> <br>
+                <b>Matias & Santiago</b> <br>
+                   <b> YiHeQiao</b>`,
+        });
+        res.sendStatus(200)
+    } catch (error) {
+        console.log(error)
+        res.send(error)
+    }
+}
+
+
 module.exports = {
     sendMailTechBay,
-    sendMailMonti
+    sendMailMonti,
+    sendMailYiHeQiao
 }
