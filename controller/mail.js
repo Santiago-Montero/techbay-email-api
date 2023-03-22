@@ -73,9 +73,13 @@ async function sendMailYiHeQiao(req, res) {
         secure: true, // true for 465, false for other ports
         service: 'gmail',
         auth: {
-            user: config.email_YiHeQiao, // generated ethereal user
-            pass: config.password_YiHeQiao, // generated ethereal password
+            user: config.email_admin, // generated ethereal user
+            pass: config.password_admin, // generated ethereal password
         },
+        // auth: {
+        //     user: config.email_YiHeQiao, // generated ethereal user
+        //     pass: config.password_YiHeQiao, // generated ethereal password
+        // },
     });
     const { name, email, text } = req.body
     try {
