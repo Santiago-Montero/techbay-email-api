@@ -71,6 +71,7 @@ async function sendMailYiHeQiao(req, res) {
         host: "smtp.gmail.com",
         port: 465,
         secure: true, // true for 465, false for other ports
+        service: 'gmail',
         auth: {
             user: config.email_YiHeQiao, // generated ethereal user
             pass: config.password_YiHeQiao, // generated ethereal password
