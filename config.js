@@ -8,4 +8,6 @@ module.exports = {
     PORT: process.env.PORT,
     email_YiHeQiao: process.env.EMAIL_YiHeQiao,
     password_YiHeQiao: process.env.PASSWORD_YiHeQiao,
+    email_PaulaParamos: process.env.EMAIL_PaulaParamos,
+    password_PaulaParamos: process.env.PASSWORD_PaulaParamos,
 }
