@@ -33,6 +33,7 @@ async function sendMailTechBay(req, res) {
         res.send(error)
     }
 }
+
 async function sendMailMonti(req, res) {
     const transporterMonti = nodemailer.createTransport({
         host: "smtp.gmail.com",
@@ -66,6 +67,7 @@ async function sendMailMonti(req, res) {
         res.send(error)
     }
 }
+
 async function sendMailYiHeQiao(req, res) {
     const transporterYiHeQiao = nodemailer.createTransport({
         host: "smtp.gmail.com",
@@ -100,8 +102,42 @@ async function sendMailYiHeQiao(req, res) {
 }
 
 
+async function sendMailPaulaParamos(req, res) {
+    const transporterPaulaParamos = nodemailer.createTransport({
+        host: "smtp.gmail.com",
+        port: 465,
+        secure: true, // true for 465, false for other ports
+        auth: {
+            user: config.email_PaulaParamos, // generated ethereal user
+            pass: config.password_PaulaParamos, // generated ethereal password
+        },
+    });
+    const { name, email, text } = req.body
+    try {
+        await transporterPaulaParamos.sendMail({
+            from: email,
+            to: config.email_PaulaParamos,
+            subject: "Contacto desde la Pagina Paula Paramos", // Subject line
+            html: `<b>Nombre del contacto : ${name}, mail del contacto : ${email}  Texto del contacto : ${text} </b>`,
+        });
+        await transporterPaulaParamos.sendMail({
+            from: config.email_PaulaParamos,
+            to: email,
+            subject: "Contact Paula Paramos", // Subject line
+            html: `<p>Thanks for contacting with us, we will get in touch soon</p> <br>
+                <b>Paula Paramos</b>`,
+        });
+        res.sendStatus(200)
+    } catch (error) {
+        console.log(error)
+        res.send(error)
+    }
+}
+
+
 module.exports = {
     sendMailTechBay,
     sendMailMonti,
-    sendMailYiHeQiao
+    sendMailYiHeQiao,
+    sendMailPaulaParamos
 }
