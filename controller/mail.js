@@ -144,15 +144,15 @@ async function sendMailPaulaParamos(req, res) {
         await transporterPaulaParamos.sendMail({
             from: email,
             to: config.email_PaulaParamos,
-            subject: "Contacto desde la Pagina Paula Paramos", // Subject line
-            html: `<b>Nombre del contacto : ${name}, mail del contacto : ${email}  Texto del contacto : ${text} </b>`,
+            subject: "Contacto desde la página Paula Páramos", // Subject line
+            html: `<b>Nombre del contacto: ${name}, Mail del contacto: ${email}  Consulta: ${text} </b>`,
         });
         await transporterPaulaParamos.sendMail({
             from: config.email_PaulaParamos,
             to: email,
-            subject: "Contact Paula Paramos", // Subject line
-            html: `<p>Thanks for contacting with us, we will get in touch soon</p> <br>
-                <b>Paula Paramos</b>`,
+            subject: "Contacto con Paula Páramos", // Subject line
+            html: `<p>Gracias por contactarse conmigo, en breve me comunicaré con usted.</p><br>
+                <b>Paula Páramos </b>`,
         });
         res.sendStatus(200)
     } catch (error) {
