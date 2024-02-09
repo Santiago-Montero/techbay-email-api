@@ -145,7 +145,7 @@ async function sendMailPaulaParamos(req, res) {
             from: email,
             to: config.email_PaulaParamos,
             subject: "Contacto desde la página Paula Páramos", // Subject line
-            html: `<b>Nombre del contacto: ${name}, Mail del contacto: ${email}  Consulta: ${text} </b>`,
+            html: `<b>Nombre del contacto: ${name}, Mail del contacto: ${email}, Consulta: ${text} </b>`,
         });
         await transporterPaulaParamos.sendMail({
             from: config.email_PaulaParamos,
